@@ -78,3 +78,21 @@ th {
 tr:hover {
     background-color: #f5f5f5;
 }
+.btn-export {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #1d6f42;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin: 10px 0;
+    transition: background-color 0.3s;
+}
+
+.btn-export:hover {
+    background-color: #165732;
+}
+
+.fas {
+    margin-right: 5px;
+}

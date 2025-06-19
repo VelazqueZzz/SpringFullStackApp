@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>User Management</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 <div class="container">
@@ -20,6 +21,8 @@
             <input type="email" id="email" th:field="*{email}" required>
         </div>
         <button type="submit">Add User</button>
+
+
     </form>
 
     <!-- Таблица пользователей -->
@@ -38,7 +41,13 @@
             <td th:text="${user.email}"></td>
         </tr>
         </tbody>
+        <div class="export-section">
+            <a th:href="@{/users/export/excel}" class="btn btn-export">
+                <i class="fas fa-file-excel"></i> Export to Excel
+            </a>
+        </div>
     </table>
+
 </div>
 </body>
 </html>
