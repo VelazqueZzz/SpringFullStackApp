@@ -10,44 +10,53 @@
 <div class="container">
     <h1>User Management</h1>
 
-    <!-- Форма добавления пользователя -->
-    <form th:action="@{/users}" method="post" th:object="${newUser}">
-        <div>
-            <label for="name">Name:</label>
-            <input type="text" id="name" th:field="*{name}" required>
-        </div>
-        <div>
-            <label for="email">Email:</label>
-            <input type="email" id="email" th:field="*{email}" required>
-        </div>
-        <button type="submit">Add User</button>
+    <div class="action-buttons">
+        <a th:href="@{/users/add}" class="btn btn-add">
+            <i class="fas fa-plus"></i> Add User
+        </a>
+        <a th:href="@{/users/export/excel}" class="btn btn-export">
+            <i class="fas fa-file-excel"></i> Export to Excel
+        </a>
+    </div>
 
-
+    <!-- Форма поиска -->
+    <form th:action="@{/users/search}" method="get" class="search-form">
+        <input type="text" name="surname" placeholder="Search by surname...">
+        <button type="submit" class="btn btn-search">
+            <i class="fas fa-search"></i> Search
+        </button>
     </form>
 
-    <!-- Таблица пользователей -->
     <table>
         <thead>
         <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Surname</th>
             <th>Email</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="user : ${users}">
             <td th:text="${user.id}"></td>
             <td th:text="${user.name}"></td>
+            <td th:text="${user.surname}"></td>
             <td th:text="${user.email}"></td>
+            <td class="actions">
+                <a th:href="@{/users/edit/{id}(id=${user.id})}"
+                   class="btn btn-edit">
+                    <i class="fas fa-edit"></i> Edit
+                </a>
+                <a th:href="@{/users/delete/{id}(id=${user.id})}"
+                   class="btn btn-delete"
+                   onclick="return confirm('Are you sure you want to delete this user?')">
+                    <i class="fas fa-trash"></i> Delete
+                </a>
+            </td>
         </tr>
         </tbody>
-        <div class="export-section">
-            <a th:href="@{/users/export/excel}" class="btn btn-export">
-                <i class="fas fa-file-excel"></i> Export to Excel
-            </a>
-        </div>
     </table>
-
 </div>
 </body>
 </html>

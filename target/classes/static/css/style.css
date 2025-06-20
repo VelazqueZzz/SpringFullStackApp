@@ -1,3 +1,4 @@
+/* Основные стили */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
@@ -8,7 +9,7 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     background: white;
     padding: 20px;
@@ -19,45 +20,64 @@ body {
 h1 {
     color: #2c3e50;
     text-align: center;
+    margin-bottom: 30px;
 }
 
-form {
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-input[type="text"],
-input[type="email"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
+/* Кнопки */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 15px;
+    text-decoration: none;
     border-radius: 4px;
-    box-sizing: border-box;
-}
-
-button {
-    background-color: #3498db;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s;
     cursor: pointer;
-    font-size: 16px;
 }
 
-button:hover {
-    background-color: #2980b9;
+.btn i {
+    margin-right: 5px;
 }
 
+.action-buttons {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-add {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+
+.btn-export {
+    background-color: #1d6f42;
+    color: white;
+}
+
+.btn-edit {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-update {
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+.btn-cancel {
+    background-color: #6c757d;
+    color: white;
+}
+
+/* Таблица */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -71,28 +91,101 @@ th, td {
 }
 
 th {
-    background-color: #3498db;
+    background-color: #343a40;
     color: white;
 }
 
 tr:hover {
     background-color: #f5f5f5;
 }
-.btn-export {
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: #1d6f42;
-    color: white;
-    text-decoration: none;
+
+.actions {
+    display: flex;
+    gap: 5px;
+}
+
+/* Формы */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
     border-radius: 4px;
-    margin: 10px 0;
-    transition: background-color 0.3s;
+    box-sizing: border-box;
+}
+
+.error {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Эффекты при наведении */
+.btn-add:hover {
+    background-color: #218838;
 }
 
 .btn-export:hover {
     background-color: #165732;
 }
 
-.fas {
-    margin-right: 5px;
+.btn-edit:hover {
+    background-color: #138496;
 }
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+.btn-update:hover {
+    background-color: #0069d9;
+}
+
+.btn-cancel:hover {
+    background-color: #5a6268;
+}
+/* Добавьте эти стили к существующим */
+
+.search-form {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.search-form input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.btn-search {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-search:hover {
+    background-color: #5a6268;
+}
+
+/* Обновите таблицу для нового столбца */
+table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+table th:nth-child(1) { width: 5%; }  /* ID */
+table th:nth-child(2) { width: 20%; } /* Name */
+table th:nth-child(3) { width: 20%; } /* Surname */
+table th:nth-child(4) { width: 30%; } /* Email */
+table th:nth-child(5) { width: 25%; } /* Actions */
